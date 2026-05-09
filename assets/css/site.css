@@ -706,3 +706,78 @@ em, .italic { font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 50
   .shop-stat { background: white; color: black; border: 2px solid black; }
   .shop-stat-cell .num, .shop-stat-cell .label { color: black; }
 }
+
+/* =========================================================================
+   TAPPABLE CHECKLIST (equipment + station pages)
+   Opt-in via [data-checklist-section="..."] on a container.
+   ========================================================================= */
+[data-checklist-section] .checklist li {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: opacity 0.15s ease;
+}
+[data-checklist-section] .checklist li:active { opacity: 0.6; }
+[data-checklist-section] .checklist li.checked { opacity: 0.42; }
+
+/* Strikethrough — works for <li>text</li> AND <li><span></span><span>text</span><span class="qty">..</span></li> */
+[data-checklist-section] .checklist li.checked > span:nth-child(2),
+[data-checklist-section] .checklist li.checked > span.qty {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+[data-checklist-section] .checklist li.checked:not(:has(> span)) {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Filled checkbox marker when checked */
+[data-checklist-section] .checklist li.checked::before {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: #fff;
+  content: "\2713";
+  text-align: center;
+  line-height: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--sans);
+}
+
+/* Progress chip (auto-injected by checklist.js) */
+.list-progress {
+  display: inline-block;
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+  font-size: var(--fs-md);
+  color: var(--terracotta);
+  font-weight: 500;
+  background: var(--paper-warm, #fdf5ee);
+  padding: var(--s2) var(--s4);
+  border-radius: var(--r-md);
+  border-left: 3px solid var(--terracotta);
+  margin: var(--s4) 0 var(--s5);
+}
+.list-progress.done { color: var(--sage-deep, #5a7a4f); border-left-color: var(--sage-deep, #5a7a4f); }
+
+/* Reset button */
+.list-reset {
+  display: inline-block;
+  margin-top: var(--s5);
+  padding: var(--s2) 0;
+  background: none;
+  border: none;
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.list-reset:hover { color: var(--terracotta); }
+
+@media (hover: none) {
+  [data-checklist-section] .checklist li:hover { opacity: 1; }
+}
