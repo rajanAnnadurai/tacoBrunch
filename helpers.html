@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Helpers · Mother's Day Brunch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html">The Plan</a>
+    <a href="menu.html">Menu</a>
+    <a href="helpers.html" class="active">Helpers</a>
+  </nav>
+
+  <header class="hero" style="background: linear-gradient(135deg, var(--color-charcoal), var(--color-terracotta-deep));">
+    <div class="eyebrow">For the cooks</div>
+    <h1 style="font-size: var(--fs-36);">Pick Your Station</h1>
+    <div class="meta">5 stations · arrive at 10:30 · brunch served 12:30</div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <a class="station-card" href="helpers/station-1-eggs.html">
+          <h3>🍳 Station 1 — Egg Tacos</h3>
+          <div class="meta">Active 11:45 – 12:30 · Easy · Cooked à la minute</div>
+        </a>
+        <a class="station-card" href="helpers/station-2-chicken.html">
+          <h3>🔥 Station 2 — Achiote Grilled Chicken</h3>
+          <div class="meta">Marinate 10:30 · Grill 12:00 · Slice 12:20</div>
+        </a>
+        <a class="station-card" href="helpers/station-3-prawns.html">
+          <h3>🍤 Station 3 — Chipotle-Garlic Prawns</h3>
+          <div class="meta">Active 12:10 – 12:25 · Fast · Last to cook</div>
+        </a>
+        <a class="station-card" href="helpers/station-4-veg-sides.html">
+          <h3>🍄 Station 4 — Mushroom + Veg Sides</h3>
+          <div class="meta">Active 11:00 – 12:25 · Mushroom filling, esquites, rice, beans</div>
+        </a>
+        <a class="station-card" href="helpers/station-5-bar-toppings.html">
+          <h3>🍹 Station 5 — Bar + Toppings</h3>
+          <div class="meta">Active 11:00 – 12:30 · Pico, guac, drinks, tortilla warming</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--color-cream-deep);">
+      <div class="container">
+        <h2>Master Timeline</h2>
+        <p style="color: var(--color-muted);">When each station is active across the morning.</p>
+        <table style="width:100%; border-collapse: collapse; margin-top: var(--sp-4); font-size: var(--fs-14);">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--color-line);">
+              <th style="text-align:left; padding: var(--sp-2);">Time</th>
+              <th style="text-align:left; padding: var(--sp-2);">What's happening</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--color-line);"><td style="padding: var(--sp-2); font-weight:600;">10:30</td><td style="padding: var(--sp-2);">All cooks arrive. Stations 2, 4, 5 begin prep. Chicken into marinade.</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-line);"><td style="padding: var(--sp-2); font-weight:600;">11:00</td><td style="padding: var(--sp-2);">Station 4: start mushroom + sides. Station 5: pico, guac, drinks setup.</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-line);"><td style="padding: var(--sp-2); font-weight:600;">11:30</td><td style="padding: var(--sp-2);">Light the grill. Tortilla warming station ready.</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-line);"><td style="padding: var(--sp-2); font-weight:600;">11:45</td><td style="padding: var(--sp-2);">Station 1: eggs prep starts (cook just before serving).</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-line);"><td style="padding: var(--sp-2); font-weight:600;">12:00</td><td style="padding: var(--sp-2);">Chicken on the grill (~6 min/side).</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-line);"><td style="padding: var(--sp-2); font-weight:600;">12:10</td><td style="padding: var(--sp-2);">Station 3: prawns on the griddle (2 min/side).</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-line);"><td style="padding: var(--sp-2); font-weight:600;">12:20</td><td style="padding: var(--sp-2);">Chicken rests, gets sliced. Toppings bar plated.</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-line); background: var(--color-cream);"><td style="padding: var(--sp-2); font-weight:700; color: var(--color-terracotta-deep);">12:30</td><td style="padding: var(--sp-2); font-weight:600;">Brunch served — taco bar opens.</td></tr>
+            <tr><td style="padding: var(--sp-2); font-weight:600;">1:30</td><td style="padding: var(--sp-2);">Toast to the moms · tres leches + berries.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="text-align:center;">
+        <p class="eyebrow">Before Sunday</p>
+        <p>The full shopping list, grouped by store section.</p>
+        <p><a href="shopping.html">→ Open the shopping list</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">← Back to the plan</a></p>
+  </footer>
+</body>
+</html>
