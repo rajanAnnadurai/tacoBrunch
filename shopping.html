@@ -88,6 +88,73 @@
     .buyer-section.b-ravi h2 em { color: var(--rose); }
     .buyer-section.b-madhan h2 em { color: var(--sage-deep); }
     .buyer-section.b-suraj h2 em { color: var(--indigo); }
+
+    /* Tappable rows for shopping */
+    .checklist li {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: opacity 0.15s ease;
+    }
+    .checklist li:active { opacity: 0.6; }
+    .checklist li.checked { opacity: 0.42; }
+    .checklist li.checked > span:nth-child(2),
+    .checklist li.checked > span.qty {
+      text-decoration: line-through;
+      text-decoration-thickness: 1.5px;
+    }
+    .checklist li.checked::before {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: #fff;
+      content: "\2713";
+      text-align: center;
+      line-height: 18px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--sans);
+    }
+
+    /* Progress chip in each buyer's header */
+    .shop-progress {
+      font-family: var(--display);
+      font-style: italic;
+      font-variation-settings: "opsz" 144, "SOFT" 60;
+      font-size: var(--fs-md);
+      color: var(--terracotta);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .buyer-section.b-rajan .shop-progress { color: var(--terracotta-deep); }
+    .buyer-section.b-ravi .shop-progress { color: var(--rose); }
+    .buyer-section.b-madhan .shop-progress { color: var(--sage-deep); }
+    .buyer-section.b-suraj .shop-progress { color: var(--indigo); }
+    .shop-progress.done::after {
+      content: " \2713";
+      font-style: normal;
+      margin-left: 0.1em;
+    }
+
+    /* Reset link at the bottom of each section */
+    .shop-reset {
+      display: inline-block;
+      margin-top: var(--s4);
+      padding: var(--s2) 0;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink-soft);
+      cursor: pointer;
+    }
+    .shop-reset:hover { color: var(--terracotta); }
+
+    @media (hover: none) {
+      .checklist li:hover { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -295,5 +362,92 @@
   <footer class="site-footer">
     <a href="helpers.html">← Back to helpers</a>
   </footer>
+
+  <script>
+    (function () {
+      var PREFIX = 'tb-shop:';
+
+      function safeGet(key) {
+        try { return localStorage.getItem(key); } catch (e) { return null; }
+      }
+      function safeSet(key, val) {
+        try {
+          if (val === null) localStorage.removeItem(key);
+          else localStorage.setItem(key, val);
+        } catch (e) {}
+      }
+
+      function itemText(li) {
+        var span = li.querySelector('span:nth-child(2)');
+        return span ? span.textContent.replace(/\s+/g, ' ').trim() : '';
+      }
+
+      function keyFor(buyerId, text) {
+        return PREFIX + buyerId + ':' + text;
+      }
+
+      function updateProgress(section) {
+        var items = section.querySelectorAll('.checklist li');
+        var done = section.querySelectorAll('.checklist li.checked').length;
+        var el = section.querySelector('.shop-progress');
+        if (!el) return;
+        if (done === items.length && items.length > 0) {
+          el.textContent = 'all done';
+          el.classList.add('done');
+        } else {
+          el.textContent = done + ' / ' + items.length + ' done';
+          el.classList.remove('done');
+        }
+      }
+
+      document.querySelectorAll('.buyer-section').forEach(function (section) {
+        var buyerId = section.id;
+
+        // Inject progress chip into the buyer's header
+        var head = section.querySelector('.buyer-head');
+        if (head) {
+          var prog = document.createElement('span');
+          prog.className = 'shop-progress';
+          head.appendChild(prog);
+        }
+
+        // Wire each row
+        section.querySelectorAll('.checklist li').forEach(function (li) {
+          var text = itemText(li);
+          if (!text) return;
+          var key = keyFor(buyerId, text);
+          if (safeGet(key) === '1') li.classList.add('checked');
+
+          li.addEventListener('click', function (e) {
+            // Don't toggle when tapping links inside an item (e.g., bakery <strong>)
+            if (e.target.closest('a')) return;
+            var nowChecked = !li.classList.contains('checked');
+            li.classList.toggle('checked', nowChecked);
+            safeSet(key, nowChecked ? '1' : null);
+            updateProgress(section);
+          });
+        });
+
+        // Reset link
+        var reset = document.createElement('button');
+        reset.type = 'button';
+        reset.className = 'shop-reset';
+        reset.textContent = '↺ Uncheck all';
+        reset.addEventListener('click', function () {
+          if (!confirm('Uncheck every item in this list?')) return;
+          section.querySelectorAll('.checklist li').forEach(function (li) {
+            var text = itemText(li);
+            if (!text) return;
+            safeSet(keyFor(buyerId, text), null);
+            li.classList.remove('checked');
+          });
+          updateProgress(section);
+        });
+        section.appendChild(reset);
+
+        updateProgress(section);
+      });
+    })();
+  </script>
 </body>
 </html>
