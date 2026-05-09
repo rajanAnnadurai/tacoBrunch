@@ -12,9 +12,10 @@
     .picker-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--s5);
+      gap: var(--s4);
     }
     @media (min-width: 760px) { .picker-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1100px) { .picker-grid { grid-template-columns: repeat(5, 1fr); } }
     .picker-card {
       position: relative;
       background: white;
@@ -27,13 +28,14 @@
       aspect-ratio: 4/5;
       object-fit: cover;
       display: block;
+      background: var(--paper-warm);
     }
     .picker-letter {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      width: 48px;
-      height: 48px;
+      top: 10px;
+      left: 10px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--rose);
       color: var(--paper);
@@ -42,88 +44,104 @@
       justify-content: center;
       font-family: var(--display);
       font-style: italic;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 600;
-      box-shadow: 0 6px 16px -6px rgba(0,0,0,0.4);
-    }
-    .picker-card.current .picker-letter {
-      background: var(--ink);
-    }
-    .picker-card.current::after {
-      content: "current";
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--ink);
-      color: var(--paper);
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 700;
+      box-shadow: 0 4px 14px -4px rgba(0,0,0,0.4);
     }
     .picker-caption {
-      padding: var(--s3) var(--s4);
+      padding: var(--s2) var(--s3);
       font-size: var(--fs-sm);
       color: var(--ink-soft);
+      text-align: center;
     }
+    .group-head {
+      margin-top: var(--s7);
+      margin-bottom: var(--s4);
+      text-align: center;
+    }
+    .group-head h2 { margin: 0; font-size: var(--fs-2xl); }
+    .group-head p { color: var(--ink-soft); margin-top: var(--s2); font-size: var(--fs-sm); }
   </style>
 </head>
 <body>
 
   <header class="page-hero">
     <div class="container">
-      <span class="eyebrow">Egg taco photo · pick one</span>
-      <h1>Which <em>shot</em>?</h1>
-      <p class="meta">Reply with the letter that looks best — I'll swap it onto the home page and menu page.</p>
+      <span class="eyebrow">Egg taco photo · round 2</span>
+      <h1>Pick a <em>shot</em>.</h1>
+      <p class="meta">Fresh Unsplash candidates. Reply with the letter (A–J), or "none" and I'll search with different keywords.</p>
     </div>
   </header>
 
   <main>
     <section class="container container-wide">
+
       <div class="picker-grid">
 
-        <div class="picker-card current">
+        <div class="picker-card">
           <span class="picker-letter">A</span>
-          <img src="https://images.unsplash.com/photo-1611699363898-66fabe471e3c?auto=format&fit=crop&w=600&h=750&q=85" alt="Option A">
-          <div class="picker-caption">A — currently live</div>
+          <img src="https://images.unsplash.com/photo-1632370339733-759652742546?auto=format&fit=crop&w=600&h=750&q=85" alt="A">
+          <div class="picker-caption">A</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">B</span>
-          <img src="https://images.unsplash.com/photo-1731090389654-f84a8d454046?auto=format&fit=crop&w=600&h=750&q=85" alt="Option B">
+          <img src="https://images.unsplash.com/photo-1632370339733-4896d407f6f9?auto=format&fit=crop&w=600&h=750&q=85" alt="B">
           <div class="picker-caption">B</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">C</span>
-          <img src="https://images.unsplash.com/photo-1662478839528-a9c2db7e97b6?auto=format&fit=crop&w=600&h=750&q=85" alt="Option C">
+          <img src="https://images.unsplash.com/photo-1557366972-9c9f3ccc30f4?auto=format&fit=crop&w=600&h=750&q=85" alt="C">
           <div class="picker-caption">C</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">D</span>
-          <img src="https://images.unsplash.com/photo-1644289450169-bc58aa16bacb?auto=format&fit=crop&w=600&h=750&q=85" alt="Option D">
+          <img src="https://images.unsplash.com/photo-1634582825302-a8bc2a263a9a?auto=format&fit=crop&w=600&h=750&q=85" alt="D">
           <div class="picker-caption">D</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">E</span>
-          <img src="https://images.unsplash.com/photo-1607278967323-8766a3a501e6?auto=format&fit=crop&w=600&h=750&q=85" alt="Option E">
+          <img src="https://images.unsplash.com/photo-1634582819714-5eb4df02c450?auto=format&fit=crop&w=600&h=750&q=85" alt="E">
           <div class="picker-caption">E</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">F</span>
-          <img src="https://images.unsplash.com/photo-1587569906338-f79d500d7122?auto=format&fit=crop&w=600&h=750&q=85" alt="Option F">
+          <img src="https://images.unsplash.com/photo-1592044903782-9836f74027c0?auto=format&fit=crop&w=600&h=750&q=85" alt="F">
           <div class="picker-caption">F</div>
+        </div>
+
+        <div class="picker-card">
+          <span class="picker-letter">G</span>
+          <img src="https://images.unsplash.com/photo-1626160199683-6f9993bee037?auto=format&fit=crop&w=600&h=750&q=85" alt="G">
+          <div class="picker-caption">G</div>
+        </div>
+
+        <div class="picker-card">
+          <span class="picker-letter">H</span>
+          <img src="https://images.unsplash.com/photo-1598481309151-970fbcc3c89d?auto=format&fit=crop&w=600&h=750&q=85" alt="H">
+          <div class="picker-caption">H</div>
+        </div>
+
+        <div class="picker-card">
+          <span class="picker-letter">I</span>
+          <img src="https://images.unsplash.com/photo-1776437208974-b4300ffcd811?auto=format&fit=crop&w=600&h=750&q=85" alt="I">
+          <div class="picker-caption">I</div>
+        </div>
+
+        <div class="picker-card">
+          <span class="picker-letter">J</span>
+          <img src="https://images.unsplash.com/photo-1647545401834-39096eb7e4ad?auto=format&fit=crop&w=600&h=750&q=85" alt="J">
+          <div class="picker-caption">J</div>
         </div>
 
       </div>
 
       <p style="margin-top: var(--s7); text-align: center; color: var(--ink-soft); font-style: italic; font-family: var(--display); font-size: var(--fs-lg);">
-        Reply A, B, C, D, E, or F. If none look right, tell me and I'll fetch more.
+        Reply A–J. Or "none" and I'll keep searching.
       </p>
     </section>
   </main>
