@@ -1,213 +1,670 @@
 /* =========================================================================
-   DESIGN TOKENS
+   MOTHER'S DAY TACO BRUNCH — DESIGN SYSTEM
+   Mexican modernismo × editorial cookbook
+   Inspired by Luis Barragán's color walls and a Bon Appétit feature.
    ========================================================================= */
+
 :root {
-  /* Color */
-  --color-cream: #fdf6ec;
-  --color-cream-deep: #f5e6d3;
-  --color-terracotta: #d4756f;
-  --color-terracotta-deep: #b85850;
-  --color-warm-orange: #e8a87c;
-  --color-sage: #8aa680;
-  --color-sage-deep: #5e8c4a;
-  --color-charcoal: #2a2522;
-  --color-ink: #1a1614;
-  --color-muted: #7a6f66;
-  --color-line: #e8d8c4;
+  /* Color — Barragán warmth with depth */
+  --ink: #1f1a17;
+  --ink-soft: #5a4f48;
+  --paper: #fbf6ee;
+  --paper-warm: #f4ead7;
+  --terracotta: #c24a3b;
+  --terracotta-deep: #973428;
+  --rose: #e8748f;
+  --rose-soft: #f4d9d6;
+  --marigold: #e89e3f;
+  --marigold-soft: #f5d9a5;
+  --sage: #7e9b6e;
+  --sage-deep: #506b46;
+  --indigo: #3a4a6b;
+  --line: #d9c8b1;
+  --line-soft: #ece1cf;
 
-  /* Type */
-  --font-display: "Fraunces", "Cooper Black", Georgia, serif;
-  --font-body: "Inter", -apple-system, "Helvetica Neue", system-ui, sans-serif;
+  /* Typography */
+  --display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --sans: "Manrope", -apple-system, system-ui, sans-serif;
 
-  /* Type scale */
-  --fs-12: 0.75rem;
-  --fs-14: 0.875rem;
-  --fs-16: 1rem;
-  --fs-18: 1.125rem;
-  --fs-22: 1.375rem;
-  --fs-28: 1.75rem;
-  --fs-36: 2.25rem;
-  --fs-48: 3rem;
+  /* Type scale (perfect-fourth, more dramatic) */
+  --fs-xs:   0.75rem;     /* 12 */
+  --fs-sm:   0.875rem;    /* 14 */
+  --fs-md:   1rem;        /* 16 */
+  --fs-lg:   1.125rem;    /* 18 */
+  --fs-xl:   1.375rem;    /* 22 */
+  --fs-2xl:  1.875rem;    /* 30 */
+  --fs-3xl:  2.5rem;      /* 40 */
+  --fs-4xl:  3.5rem;      /* 56 */
+  --fs-5xl:  5rem;        /* 80 */
+  --fs-6xl:  7rem;        /* 112 */
 
   /* Spacing */
-  --sp-1: 4px;
-  --sp-2: 8px;
-  --sp-3: 12px;
-  --sp-4: 16px;
-  --sp-5: 24px;
-  --sp-6: 32px;
-  --sp-7: 48px;
-  --sp-8: 64px;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+  --s9: 96px;
+  --s10: 128px;
 
-  /* Radius */
-  --r-sm: 6px;
-  --r-md: 12px;
+  --r-sm: 4px;
+  --r-md: 10px;
   --r-lg: 18px;
+  --r-xl: 28px;
+
+  /* Aliases for legacy variable names used in inline styles on older pages */
+  --sp-1: var(--s1);
+  --sp-2: var(--s2);
+  --sp-3: var(--s3);
+  --sp-4: var(--s4);
+  --sp-5: var(--s5);
+  --sp-6: var(--s6);
+  --sp-7: var(--s7);
+  --sp-8: var(--s8);
+  --fs-12: var(--fs-xs);
+  --fs-14: var(--fs-sm);
+  --fs-16: var(--fs-md);
+  --fs-18: var(--fs-lg);
+  --fs-22: var(--fs-xl);
+  --fs-28: var(--fs-2xl);
+  --fs-36: var(--fs-3xl);
+  --fs-48: var(--fs-4xl);
+  --color-muted: var(--ink-soft);
+  --color-cream: var(--paper);
+  --color-cream-deep: var(--paper-warm);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-deep: var(--terracotta-deep);
+  --color-warm-orange: var(--marigold);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-charcoal: var(--ink);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
 }
 
 /* =========================================================================
-   RESET (lightweight)
+   RESET + BASE
    ========================================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-  font-family: var(--font-body);
-  font-size: var(--fs-16);
+  font-family: var(--sans);
+  font-size: var(--fs-md);
   line-height: 1.55;
-  color: var(--color-ink);
-  background: var(--color-cream);
+  color: var(--ink);
+  background: var(--paper);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Subtle grain texture for warmth — avoids flat-color sterility */
+  background-image:
+    radial-gradient(at 0% 0%, var(--rose-soft) 0, transparent 35%),
+    radial-gradient(at 100% 100%, var(--marigold-soft) 0, transparent 40%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.09  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-attachment: fixed;
+  background-size: 100% 100%, 100% 100%, 160px 160px;
 }
+
 img { max-width: 100%; display: block; }
-a { color: var(--color-terracotta-deep); text-decoration: none; }
-a:hover { text-decoration: underline; }
 
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; margin: 0 0 var(--sp-4); }
-h1 { font-size: var(--fs-48); }
-h2 { font-size: var(--fs-36); }
-h3 { font-size: var(--fs-22); }
-p { margin: 0 0 var(--sp-4); }
+a { color: var(--terracotta-deep); text-decoration: underline; text-decoration-color: var(--rose); text-underline-offset: 3px; text-decoration-thickness: 1.5px; transition: all 0.15s ease; }
+a:hover { color: var(--rose); text-decoration-color: var(--terracotta-deep); }
+
+::selection { background: var(--rose); color: var(--paper); }
 
 /* =========================================================================
-   LAYOUT PRIMITIVES
+   TYPOGRAPHY
    ========================================================================= */
-.container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 var(--sp-5); }
-.container-wide { max-width: 1080px; }
-.section { padding: var(--sp-7) 0; }
-.eyebrow { font-size: var(--fs-12); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-muted); }
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  margin: 0 0 var(--s4);
+  color: var(--ink);
+  /* Use Fraunces variable axes for cookbook elegance */
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, var(--fs-6xl)); font-weight: 600; letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.875rem, 5vw, var(--fs-3xl)); font-weight: 500; }
+h3 { font-size: var(--fs-xl); font-weight: 600; letter-spacing: -0.012em; }
+h4 { font-size: var(--fs-md); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--sans); }
+
+p { margin: 0 0 var(--s4); }
+
+em, .italic { font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 50; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  display: inline-block;
+}
+
+.dingbat {
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--rose);
+  font-size: 1.5em;
+  line-height: 0;
+  vertical-align: -0.1em;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
 
 /* =========================================================================
-   HERO (home page)
+   LAYOUT
+   ========================================================================= */
+.container { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 var(--s5); }
+.container-wide { max-width: 1100px; }
+.section { padding: var(--s9) 0; }
+
+@media (max-width: 600px) {
+  .section { padding: var(--s7) 0; }
+}
+
+/* Color band sections — full-bleed background, centered content */
+.band { padding: var(--s9) 0; position: relative; }
+.band-rose { background: var(--rose); color: var(--paper); }
+.band-rose h1, .band-rose h2, .band-rose h3 { color: var(--paper); }
+.band-rose .eyebrow { color: rgba(251,246,238,0.85); }
+.band-rose a { color: var(--paper); text-decoration-color: rgba(251,246,238,0.5); }
+.band-cream { background: var(--paper-warm); }
+.band-indigo { background: var(--indigo); color: var(--paper); }
+.band-indigo h1, .band-indigo h2, .band-indigo h3 { color: var(--paper); }
+.band-indigo .eyebrow { color: rgba(251,246,238,0.7); }
+.band-sage { background: var(--sage-deep); color: var(--paper); }
+.band-sage h1, .band-sage h2, .band-sage h3 { color: var(--paper); }
+
+/* Decorative serif divider */
+.divider {
+  font-family: var(--display);
+  font-style: italic;
+  text-align: center;
+  font-size: var(--fs-xl);
+  color: var(--rose);
+  margin: var(--s7) 0;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  letter-spacing: 0.4em;
+}
+
+/* =========================================================================
+   HERO (home)
    ========================================================================= */
 .hero {
-  background: linear-gradient(135deg, var(--color-terracotta) 0%, var(--color-warm-orange) 100%);
-  color: white;
-  padding: var(--sp-8) var(--sp-5) var(--sp-7);
-  text-align: center;
-}
-.hero .eyebrow { color: rgba(255,255,255,0.9); }
-.hero h1 { color: white; font-size: var(--fs-48); margin: var(--sp-3) 0 var(--sp-4); }
-.hero .meta { font-size: var(--fs-18); opacity: 0.95; }
-
-/* =========================================================================
-   TIMELINE (the plan)
-   ========================================================================= */
-.timeline { display: flex; flex-direction: column; gap: var(--sp-4); }
-.timeline-row { display: flex; gap: var(--sp-4); align-items: flex-start; }
-.timeline-time {
-  flex: 0 0 80px;
-  background: var(--color-terracotta);
-  color: white;
-  border-radius: 999px;
-  padding: var(--sp-1) var(--sp-3);
-  font-size: var(--fs-14);
-  font-weight: 600;
-  text-align: center;
-}
-.timeline-text { flex: 1; padding-top: 2px; }
-
-/* =========================================================================
-   CARDS (menu, station, recipe step)
-   ========================================================================= */
-.card {
-  background: white;
-  border-radius: var(--r-md);
+  padding: var(--s9) 0 var(--s8);
+  background: var(--terracotta);
+  color: var(--paper);
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(42, 37, 34, 0.08);
 }
-.card-img { aspect-ratio: 4/3; object-fit: cover; width: 100%; }
-.card-body { padding: var(--sp-4); }
-.card-body h3 { margin: 0 0 var(--sp-2); }
-.card-body p { color: var(--color-muted); font-size: var(--fs-14); margin: 0; }
+.hero::before {
+  /* Asymmetric paper-overlap accent at the bottom */
+  content: "";
+  position: absolute;
+  inset: auto -10% -1px -10%;
+  height: 60px;
+  background: var(--paper);
+  border-radius: 50% 50% 0 0;
+  transform: translateY(50%);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s7);
+  align-items: end;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--s5);
+}
+@media (min-width: 800px) {
+  .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: var(--s8); }
+}
+.hero h1 {
+  color: var(--paper);
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.95;
+  margin: var(--s4) 0 var(--s5);
+  font-weight: 600;
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+}
+.hero h1 em {
+  color: var(--rose-soft);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+.hero .eyebrow { color: rgba(251,246,238,0.85); }
+.hero .meta { font-size: var(--fs-lg); opacity: 0.95; margin-top: var(--s4); max-width: 36ch; }
+.hero-photo {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: 0 30px 60px -20px rgba(31,26,23,0.45);
+  transform: rotate(2deg);
+  position: relative;
+  z-index: 2;
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
 
+/* =========================================================================
+   PAGE HERO (interior pages)
+   ========================================================================= */
+.page-hero {
+  padding: var(--s8) 0 var(--s7);
+  text-align: center;
+  position: relative;
+}
+.page-hero h1 {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  margin: var(--s3) 0 var(--s4);
+}
+.page-hero h1 em { color: var(--terracotta); font-style: italic; }
+.page-hero .meta { color: var(--ink-soft); font-size: var(--fs-md); }
+
+/* =========================================================================
+   TIMELINE
+   ========================================================================= */
+.timeline { display: flex; flex-direction: column; gap: 0; max-width: 640px; margin: 0 auto; }
+.timeline-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: var(--s5);
+  padding: var(--s5) 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.timeline-row:last-child { border-bottom: none; }
+.timeline-time {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--fs-2xl);
+  color: var(--terracotta);
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  line-height: 1;
+}
+.timeline-text { font-size: var(--fs-md); color: var(--ink); line-height: 1.5; }
+
+/* =========================================================================
+   MENU CARDS
+   ========================================================================= */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--sp-4);
+  gap: var(--s4);
 }
-@media (min-width: 700px) {
-  .menu-grid { grid-template-columns: repeat(3, 1fr); }
-}
+@media (min-width: 760px) { .menu-grid { grid-template-columns: repeat(3, 1fr); gap: var(--s5); } }
+@media (min-width: 1000px) { .menu-grid { grid-template-columns: repeat(4, 1fr); } }
 
-.station-card {
-  display: block;
-  background: white;
-  border-radius: var(--r-md);
-  border-left: 4px solid var(--color-terracotta);
-  padding: var(--sp-4);
-  text-decoration: none;
-  color: var(--color-ink);
-  margin-bottom: var(--sp-3);
-  box-shadow: 0 1px 4px rgba(42,37,34,0.06);
+.card {
+  background: transparent;
+  position: relative;
+  transition: transform 0.25s ease;
 }
-.station-card:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(42,37,34,0.10); text-decoration: none; }
-.station-card h3 { margin: 0 0 var(--sp-1); font-size: var(--fs-18); }
-.station-card .meta { color: var(--color-muted); font-size: var(--fs-14); }
+.card:hover { transform: translateY(-3px); }
+.card-img {
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  width: 100%;
+  border-radius: var(--r-md);
+  box-shadow: 0 8px 24px -10px rgba(31,26,23,0.25);
+}
+.card-body { padding: var(--s4) 0 0; }
+.card-body h3 {
+  margin: 0 0 var(--s1);
+  font-size: var(--fs-lg);
+  letter-spacing: -0.012em;
+  line-height: 1.15;
+}
+.card-body p { color: var(--ink-soft); font-size: var(--fs-sm); margin: 0; line-height: 1.45; }
+
+/* Editorial menu list (alternating photo + text rows) */
+.menu-feature {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s5);
+  padding: var(--s7) 0;
+  border-bottom: 1px solid var(--line-soft);
+  align-items: center;
+}
+@media (min-width: 720px) {
+  .menu-feature { grid-template-columns: 1fr 1fr; gap: var(--s8); }
+  .menu-feature:nth-child(even) > .menu-feature-img { order: 2; }
+}
+.menu-feature-img {
+  aspect-ratio: 4/5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 40px -16px rgba(31,26,23,0.30);
+}
+.menu-feature-img img { width: 100%; height: 100%; object-fit: cover; }
+.menu-feature .num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--fs-3xl);
+  color: var(--rose);
+  line-height: 1;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  display: block;
+  margin-bottom: var(--s2);
+}
+.menu-feature h3 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 500;
+  margin: 0 0 var(--s4);
+  letter-spacing: -0.022em;
+}
+.menu-feature h3 em { color: var(--terracotta); }
+.menu-feature p { color: var(--ink-soft); font-size: var(--fs-md); max-width: 42ch; }
 
 /* =========================================================================
-   RECIPE STEPS (per station)
+   STATION CARDS (helpers index)
+   ========================================================================= */
+.station-card {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: var(--s4);
+  padding: var(--s5);
+  background: var(--paper-warm);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  color: var(--ink);
+  margin-bottom: var(--s3);
+  align-items: center;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+.station-card:hover {
+  background: var(--paper);
+  border-color: var(--rose);
+  transform: translateX(4px);
+  text-decoration: none;
+}
+.station-card .station-num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--fs-3xl);
+  color: var(--rose);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  line-height: 1;
+  text-align: center;
+}
+.station-card h3 { margin: 0 0 var(--s1); font-size: var(--fs-lg); font-weight: 600; letter-spacing: -0.012em; }
+.station-card .meta { color: var(--ink-soft); font-size: var(--fs-sm); margin: 0; line-height: 1.3; }
+.station-card .arrow {
+  font-family: var(--display);
+  color: var(--terracotta);
+  font-size: var(--fs-xl);
+  font-style: italic;
+}
+
+/* =========================================================================
+   RECIPE STEPS
    ========================================================================= */
 .recipe-step {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--sp-3);
-  padding: var(--sp-5) 0;
-  border-bottom: 1px solid var(--color-line);
+  gap: var(--s4);
+  padding: var(--s6) 0;
+  border-bottom: 1px dashed var(--line);
 }
 @media (min-width: 600px) {
-  .recipe-step { grid-template-columns: 220px 1fr; gap: var(--sp-5); align-items: start; }
+  .recipe-step { grid-template-columns: 240px 1fr; gap: var(--s6); align-items: start; }
 }
 .recipe-step .step-num {
-  font-family: var(--font-display);
-  font-size: var(--fs-28);
-  color: var(--color-terracotta);
-  margin-bottom: var(--sp-1);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--fs-3xl);
+  color: var(--rose);
+  margin-bottom: var(--s2);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  line-height: 1;
 }
-.recipe-step img { border-radius: var(--r-sm); aspect-ratio: 4/3; object-fit: cover; }
-
-.callout {
-  background: var(--color-cream-deep);
+.recipe-step h3 { margin: 0 0 var(--s3); font-size: var(--fs-xl); letter-spacing: -0.012em; font-weight: 600; }
+.recipe-step img {
   border-radius: var(--r-md);
-  padding: var(--sp-4);
-  margin: var(--sp-5) 0;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  box-shadow: 0 12px 28px -12px rgba(31,26,23,0.30);
 }
-.callout h4 { margin: 0 0 var(--sp-2); font-family: var(--font-body); font-weight: 700; font-size: var(--fs-14); letter-spacing: 0.08em; text-transform: uppercase; }
-.callout ul, .callout ol { margin: 0; padding-left: var(--sp-5); }
-
-.checklist { list-style: none; padding: 0; }
-.checklist li { padding: var(--sp-2) 0; display: flex; align-items: flex-start; gap: var(--sp-3); }
-.checklist li::before { content: "☐"; font-size: var(--fs-22); color: var(--color-terracotta); flex: 0 0 auto; }
+.recipe-step p { color: var(--ink); }
 
 /* =========================================================================
-   NAV / FOOTER
+   CALLOUT (timeline / troubleshooting / checklist)
+   ========================================================================= */
+.callout {
+  background: var(--paper-warm);
+  border-radius: var(--r-md);
+  padding: var(--s5) var(--s5) var(--s4);
+  margin: var(--s6) 0;
+  border-left: 4px solid var(--rose);
+}
+.callout h4 {
+  margin: 0 0 var(--s3);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta-deep);
+}
+.callout ol, .callout ul { margin: 0; padding-left: var(--s5); }
+.callout li { padding: var(--s1) 0; }
+
+/* =========================================================================
+   CHECKLIST
+   ========================================================================= */
+.checklist { list-style: none; padding: 0; margin: 0; }
+.checklist li {
+  padding: var(--s3) 0;
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: var(--s3);
+  align-items: baseline;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: var(--fs-md);
+  line-height: 1.4;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--terracotta);
+  border-radius: var(--r-sm);
+  align-self: center;
+}
+
+/* Shopping-specific badge for quantities */
+.qty {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-size: var(--fs-md);
+  color: var(--terracotta);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* =========================================================================
+   SHOPPING LIST GROUP HEADER
+   ========================================================================= */
+.shop-group {
+  margin-bottom: var(--s7);
+}
+.shop-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s4);
+  margin-bottom: var(--s3);
+  padding-bottom: var(--s3);
+  border-bottom: 2px solid var(--ink);
+}
+.shop-group-head h2 {
+  margin: 0;
+  font-size: var(--fs-2xl);
+  letter-spacing: -0.018em;
+}
+.shop-group-head .count {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.shop-stat {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--s5);
+  padding: var(--s6) var(--s5);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--r-lg);
+  margin: var(--s7) 0;
+}
+.shop-stat-cell .num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--fs-3xl);
+  color: var(--rose);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  line-height: 1;
+  display: block;
+  margin-bottom: var(--s1);
+}
+.shop-stat-cell .label {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(251,246,238,0.7);
+}
+
+/* =========================================================================
+   CTA / BUTTONS
+   ========================================================================= */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s3);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  padding: var(--s3) var(--s5);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  text-transform: uppercase;
+}
+.button:hover { background: var(--terracotta); color: var(--paper); transform: translateY(-1px); text-decoration: none; }
+.button-rose { background: var(--rose); }
+.button-rose:hover { background: var(--terracotta); }
+.button-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+.button-outline:hover { background: var(--ink); color: var(--paper); }
+.button .arrow { font-family: var(--display); font-style: italic; font-size: 1.15em; line-height: 0.8; }
+
+/* CTA card on home page (helpers + shopping) */
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s5);
+}
+@media (min-width: 720px) { .cta-grid { grid-template-columns: 1fr 1fr; } }
+.cta-card {
+  background: var(--paper);
+  padding: var(--s6);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  transition: all 0.2s ease;
+}
+.cta-card:hover { border-color: var(--rose); transform: translateY(-2px); box-shadow: 0 12px 24px -16px rgba(31,26,23,0.25); }
+.cta-card .icon {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--fs-4xl);
+  color: var(--rose);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  line-height: 0.85;
+  margin-bottom: var(--s3);
+  display: block;
+}
+.cta-card h3 { margin: 0 0 var(--s2); }
+.cta-card p { color: var(--ink-soft); font-size: var(--fs-sm); margin: 0 0 var(--s4); }
+
+/* =========================================================================
+   NAV + FOOTER
    ========================================================================= */
 .site-nav {
-  display: flex; gap: var(--sp-4); justify-content: center;
-  padding: var(--sp-4) var(--sp-5);
-  font-size: var(--fs-14);
-  border-bottom: 1px solid var(--color-line);
+  display: flex;
+  gap: var(--s5);
+  justify-content: center;
+  padding: var(--s4) var(--s5);
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
 }
-.site-nav a { color: var(--color-muted); }
-.site-nav a.active { color: var(--color-ink); font-weight: 600; }
+.site-nav a { color: var(--ink-soft); text-decoration: none; padding: var(--s2) 0; border-bottom: 2px solid transparent; transition: all 0.18s ease; }
+.site-nav a:hover, .site-nav a.active { color: var(--ink); border-bottom-color: var(--rose); }
 
 .site-footer {
   text-align: center;
-  padding: var(--sp-7) var(--sp-5);
-  font-size: var(--fs-14);
-  color: var(--color-muted);
+  padding: var(--s8) var(--s5);
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: var(--display);
+  font-variation-settings: "opsz" 144, "SOFT" 80;
 }
 
 /* =========================================================================
    PRINT
    ========================================================================= */
 @media print {
-  body { background: white; color: black; font-size: 11pt; }
-  .site-nav, .site-footer, .hero { background: white !important; color: black !important; }
-  .hero { padding: 0 0 var(--sp-4); border-bottom: 2px solid black; }
-  .hero h1 { color: black; }
-  .station-card, .card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+  body {
+    background: white;
+    color: black;
+    font-size: 11pt;
+    background-image: none;
+  }
+  .site-nav, .site-footer { display: none; }
+  .hero, .page-hero, .band-rose, .band-indigo, .band-sage {
+    background: white !important;
+    color: black !important;
+    padding: var(--s4) 0;
+  }
+  .hero::before { display: none; }
+  .hero h1, .hero h1 em, .page-hero h1, .band-rose h1, .band-rose h2, .band-rose h3 {
+    color: black !important;
+  }
+  .hero-photo { display: none; }
+  .station-card, .card, .cta-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
   .recipe-step { break-inside: avoid; }
   a { color: black; text-decoration: none; }
-  a::after { content: ""; }
-  img { max-height: 200px; }
+  img { max-height: 220px; }
+  .callout { border-left: 3px solid #000; background: #f5f5f5 !important; }
+  .shop-stat { background: white; color: black; border: 2px solid black; }
+  .shop-stat-cell .num, .shop-stat-cell .label { color: black; }
 }
