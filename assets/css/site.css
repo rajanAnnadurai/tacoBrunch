@@ -640,6 +640,44 @@ em, .italic { font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 50
 }
 
 /* =========================================================================
+   INDOOR / OUTDOOR PILLS
+   ========================================================================= */
+.where {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  vertical-align: 2px;
+  margin-right: var(--s2);
+}
+.where-indoor { background: var(--paper-warm); color: var(--ink); border: 1px solid var(--line); }
+.where-outdoor { background: var(--terracotta); color: var(--paper); }
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s5);
+}
+@media (min-width: 720px) { .equipment-grid { grid-template-columns: 1fr 1fr; } }
+.equipment-card {
+  background: var(--paper);
+  border-radius: var(--r-md);
+  padding: var(--s5);
+  border: 1px solid var(--line);
+}
+.equipment-card.outdoor { border-left: 4px solid var(--terracotta); }
+.equipment-card.indoor { border-left: 4px solid var(--sage-deep); }
+.equipment-card h3 {
+  margin: 0 0 var(--s3);
+  font-size: var(--fs-xl);
+  letter-spacing: -0.012em;
+}
+
+/* =========================================================================
    PRINT
    ========================================================================= */
 @media print {
