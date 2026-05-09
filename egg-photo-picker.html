@@ -48,28 +48,36 @@
       font-weight: 600;
       box-shadow: 0 4px 14px -4px rgba(0,0,0,0.4);
     }
+    .picker-card.featured .picker-letter { background: var(--terracotta-deep); }
+    .picker-card.featured::after {
+      content: "best match";
+      position: absolute;
+      top: 14px;
+      right: 10px;
+      background: var(--terracotta-deep);
+      color: var(--paper);
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
     .picker-caption {
       padding: var(--s2) var(--s3);
       font-size: var(--fs-sm);
       color: var(--ink-soft);
       text-align: center;
     }
-    .group-head {
-      margin-top: var(--s7);
-      margin-bottom: var(--s4);
-      text-align: center;
-    }
-    .group-head h2 { margin: 0; font-size: var(--fs-2xl); }
-    .group-head p { color: var(--ink-soft); margin-top: var(--s2); font-size: var(--fs-sm); }
   </style>
 </head>
 <body>
 
   <header class="page-hero">
     <div class="container">
-      <span class="eyebrow">Egg taco photo · round 2</span>
+      <span class="eyebrow">Egg taco photo · round 3</span>
       <h1>Pick a <em>shot</em>.</h1>
-      <p class="meta">Fresh Unsplash candidates. Reply with the letter (A–J), or "none" and I'll search with different keywords.</p>
+      <p class="meta">A & B come from the exact "austin egg taco with egg and potato" search. The rest are from "austin breakfast taco" and "egg and potato taco". Reply with the letter, or "none" and I'll keep digging.</p>
     </div>
   </header>
 
@@ -78,63 +86,63 @@
 
       <div class="picker-grid">
 
-        <div class="picker-card">
+        <div class="picker-card featured">
           <span class="picker-letter">A</span>
-          <img src="https://images.unsplash.com/photo-1632370339733-759652742546?auto=format&fit=crop&w=600&h=750&q=85" alt="A">
-          <div class="picker-caption">A</div>
+          <img src="https://images.unsplash.com/photo-1601579112521-5d6badb0bf3c?auto=format&fit=crop&w=600&h=750&q=85" alt="A">
+          <div class="picker-caption">A · austin-egg-taco-with-egg-and-potato</div>
         </div>
 
-        <div class="picker-card">
+        <div class="picker-card featured">
           <span class="picker-letter">B</span>
-          <img src="https://images.unsplash.com/photo-1632370339733-4896d407f6f9?auto=format&fit=crop&w=600&h=750&q=85" alt="B">
-          <div class="picker-caption">B</div>
+          <img src="https://images.unsplash.com/photo-1601579110733-f654670d8c30?auto=format&fit=crop&w=600&h=750&q=85" alt="B">
+          <div class="picker-caption">B · austin-egg-taco-with-egg-and-potato</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">C</span>
-          <img src="https://images.unsplash.com/photo-1557366972-9c9f3ccc30f4?auto=format&fit=crop&w=600&h=750&q=85" alt="C">
+          <img src="https://images.unsplash.com/photo-1584989695065-3e531cc43738?auto=format&fit=crop&w=600&h=750&q=85" alt="C">
           <div class="picker-caption">C</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">D</span>
-          <img src="https://images.unsplash.com/photo-1634582825302-a8bc2a263a9a?auto=format&fit=crop&w=600&h=750&q=85" alt="D">
+          <img src="https://images.unsplash.com/photo-1629122850744-28e6baa5d4d8?auto=format&fit=crop&w=600&h=750&q=85" alt="D">
           <div class="picker-caption">D</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">E</span>
-          <img src="https://images.unsplash.com/photo-1634582819714-5eb4df02c450?auto=format&fit=crop&w=600&h=750&q=85" alt="E">
+          <img src="https://images.unsplash.com/photo-1674744175650-0d2775beb00b?auto=format&fit=crop&w=600&h=750&q=85" alt="E">
           <div class="picker-caption">E</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">F</span>
-          <img src="https://images.unsplash.com/photo-1592044903782-9836f74027c0?auto=format&fit=crop&w=600&h=750&q=85" alt="F">
+          <img src="https://images.unsplash.com/photo-1623345756568-75a63f6224e8?auto=format&fit=crop&w=600&h=750&q=85" alt="F">
           <div class="picker-caption">F</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">G</span>
-          <img src="https://images.unsplash.com/photo-1626160199683-6f9993bee037?auto=format&fit=crop&w=600&h=750&q=85" alt="G">
+          <img src="https://images.unsplash.com/photo-1650338031185-1e97add7a389?auto=format&fit=crop&w=600&h=750&q=85" alt="G">
           <div class="picker-caption">G</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">H</span>
-          <img src="https://images.unsplash.com/photo-1598481309151-970fbcc3c89d?auto=format&fit=crop&w=600&h=750&q=85" alt="H">
+          <img src="https://images.unsplash.com/photo-1584989695048-384847b55244?auto=format&fit=crop&w=600&h=750&q=85" alt="H">
           <div class="picker-caption">H</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">I</span>
-          <img src="https://images.unsplash.com/photo-1776437208974-b4300ffcd811?auto=format&fit=crop&w=600&h=750&q=85" alt="I">
+          <img src="https://images.unsplash.com/photo-1695678939676-3349d810ad7c?auto=format&fit=crop&w=600&h=750&q=85" alt="I">
           <div class="picker-caption">I</div>
         </div>
 
         <div class="picker-card">
           <span class="picker-letter">J</span>
-          <img src="https://images.unsplash.com/photo-1647545401834-39096eb7e4ad?auto=format&fit=crop&w=600&h=750&q=85" alt="J">
+          <img src="https://images.unsplash.com/photo-1619151578119-b2f65ec6ebd8?auto=format&fit=crop&w=600&h=750&q=85" alt="J">
           <div class="picker-caption">J</div>
         </div>
 
