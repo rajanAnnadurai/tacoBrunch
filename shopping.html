@@ -8,6 +8,87 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .buyer-jump {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s3);
+      margin: var(--s7) 0 var(--s8);
+    }
+    @media (min-width: 720px) { .buyer-jump { grid-template-columns: repeat(4, 1fr); } }
+    .buyer-jump a {
+      display: block;
+      padding: var(--s4);
+      background: var(--paper);
+      border-radius: var(--r-md);
+      text-decoration: none;
+      color: var(--ink);
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .buyer-jump a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px -10px rgba(31,26,23,0.25); }
+    .buyer-jump .name {
+      font-family: var(--display);
+      font-size: var(--fs-2xl);
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin: 0 0 var(--s1);
+      line-height: 1;
+      font-variation-settings: "opsz" 144, "SOFT" 60;
+    }
+    .buyer-jump .what {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+    .buyer-jump .count {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 600;
+      margin-top: var(--s2);
+    }
+    .buyer-jump a.c-rajan { border-color: var(--terracotta); }
+    .buyer-jump a.c-rajan .name { color: var(--terracotta-deep); }
+    .buyer-jump a.c-ravi { border-color: var(--rose); }
+    .buyer-jump a.c-ravi .name { color: var(--rose); }
+    .buyer-jump a.c-madhan { border-color: var(--sage-deep); }
+    .buyer-jump a.c-madhan .name { color: var(--sage-deep); }
+    .buyer-jump a.c-suraj { border-color: var(--indigo); }
+    .buyer-jump a.c-suraj .name { color: var(--indigo); }
+
+    .buyer-section { padding: var(--s8) 0; border-top: 1px solid var(--line-soft); scroll-margin-top: 80px; }
+    .buyer-head {
+      display: flex;
+      align-items: baseline;
+      gap: var(--s4);
+      margin-bottom: var(--s5);
+      flex-wrap: wrap;
+    }
+    .buyer-head h2 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      margin: 0;
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+    .buyer-head h2 em { font-style: italic; }
+    .buyer-head .you-buy {
+      font-family: var(--sans);
+      font-size: var(--fs-sm);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+    .buyer-section.b-rajan h2 em { color: var(--terracotta-deep); }
+    .buyer-section.b-ravi h2 em { color: var(--rose); }
+    .buyer-section.b-madhan h2 em { color: var(--sage-deep); }
+    .buyer-section.b-suraj h2 em { color: var(--indigo); }
+  </style>
 </head>
 <body>
 
@@ -20,9 +101,9 @@
 
   <header class="page-hero">
     <div class="container">
-      <span class="eyebrow">For the host</span>
+      <span class="eyebrow">For four shoppers</span>
       <h1>Shopping <em>List</em></h1>
-      <p class="meta">Everything to buy, grouped by aisle. Sized for 15 guests · 80 tacos of capacity.</p>
+      <p class="meta">Split four ways — find your name below and grab your section.</p>
     </div>
   </header>
 
@@ -35,148 +116,171 @@
         </div>
         <div class="shop-stat-cell">
           <span class="num">4</span>
-          <span class="label">Fillings</span>
+          <span class="label">Shoppers</span>
         </div>
         <div class="shop-stat-cell">
           <span class="num">80</span>
           <span class="label">Tacos worth</span>
         </div>
         <div class="shop-stat-cell">
-          <span class="num">9</span>
-          <span class="label">Aisles</span>
+          <span class="num">49</span>
+          <span class="label">Items total</span>
         </div>
       </div>
 
-      <p style="color: var(--ink-soft); font-style: italic; text-align: center; max-width: 50ch; margin: 0 auto var(--s7); font-family: var(--display); font-size: var(--fs-lg); font-variation-settings: 'opsz' 144, 'SOFT' 80;">
-        Everything below is sized for 20 tacos per filling — abundance, with sensible leftovers. Adjust down if you want to. <span class="dingbat">❦</span>
-      </p>
-    </section>
-
-    <section class="container">
-
-      <!-- ============== PRODUCE ============== -->
-      <div class="shop-group">
-        <div class="shop-group-head">
-          <h2>Produce</h2>
-          <span class="count">18 items</span>
-        </div>
-        <ul class="checklist">
-          <li><span></span><span>Limes (juice + wedges — used everywhere, esp. 16 for margaritas)</span><span class="qty">25 large</span></li>
-          <li><span></span><span>Yellow onions (≈ 3 medium)</span><span class="qty">2 lb</span></li>
-          <li><span></span><span>Red onions (pickling + pico)</span><span class="qty">1 lb</span></li>
-          <li><span></span><span>Poblano peppers (charred)</span><span class="qty">4 large</span></li>
-          <li><span></span><span>Jalapeño</span><span class="qty">1</span></li>
-          <li><span></span><span>Roma tomatoes (≈ 8, for pico)</span><span class="qty">2 lb</span></li>
-          <li><span></span><span>Cilantro (large bunches)</span><span class="qty">2</span></li>
-          <li><span></span><span>Iceberg or romaine</span><span class="qty">1 head</span></li>
-          <li><span></span><span>Red cabbage (slaw for prawns)</span><span class="qty">1 small</span></li>
-          <li><span></span><span>Cremini mushrooms</span><span class="qty">2 lb</span></li>
-          <li><span></span><span>Yukon gold potatoes (egg tacos)</span><span class="qty">1¼ lb</span></li>
-          <li><span></span><span>Garlic (≈ 18 cloves used)</span><span class="qty">2 heads</span></li>
-          <li><span></span><span>Ripe avocados (guacamole — get 8 if guests love it)</span><span class="qty">6</span></li>
-          <li><span></span><span>Watermelon (agua fresca)</span><span class="qty">1 small (~5-6 lb)</span></li>
-          <li><span></span><span>Strawberries</span><span class="qty">1 lb</span></li>
-          <li><span></span><span>Blueberries</span><span class="qty">1 pint</span></li>
-          <li><span></span><span>Corn (or 1 lb frozen)</span><span class="qty">2 ears</span></li>
-          <li><span></span><span>Pink grapefruit OR grapefruit soda</span><span class="qty">1 / 6-pack</span></li>
-        </ul>
+      <div class="buyer-jump">
+        <a class="c-rajan" href="#rajan">
+          <div class="name">Rajan</div>
+          <div class="what">Meat · Dairy · Pantry · Tortillas</div>
+          <div class="count">23 items</div>
+        </a>
+        <a class="c-ravi" href="#ravi">
+          <div class="name">Ravi</div>
+          <div class="what">Drinks + Bar</div>
+          <div class="count">7 items</div>
+        </a>
+        <a class="c-madhan" href="#madhan">
+          <div class="name">Madhan</div>
+          <div class="what">All Produce</div>
+          <div class="count">18 items</div>
+        </a>
+        <a class="c-suraj" href="#suraj">
+          <div class="name">Suraj</div>
+          <div class="what">Bakery</div>
+          <div class="count">1 item</div>
+        </a>
       </div>
 
-      <!-- ============== MEAT / SEAFOOD ============== -->
-      <div class="shop-group">
-        <div class="shop-group-head">
-          <h2>Meat <em class="italic">+</em> Seafood</h2>
-          <span class="count">2 items</span>
+      <!-- ============== RAJAN ============== -->
+      <div id="rajan" class="buyer-section b-rajan">
+        <div class="buyer-head">
+          <h2><em>Rajan</em>'s list</h2>
+          <span class="you-buy">Meat · Dairy · Pantry · Tortillas · 23 items</span>
         </div>
-        <ul class="checklist">
-          <li><span></span><span>Boneless skinless chicken thighs (≈ 10)</span><span class="qty">2½ lb</span></li>
-          <li><span></span><span>Large peeled, deveined shrimp (16/20 count, ≈ 40 prawns)</span><span class="qty">2 lb</span></li>
-        </ul>
+
+        <div class="shop-group">
+          <div class="shop-group-head"><h2>Meat <em class="italic">+</em> Seafood</h2><span class="count">2 items</span></div>
+          <ul class="checklist">
+            <li><span></span><span>Boneless skinless chicken thighs (≈ 10)</span><span class="qty">2½ lb</span></li>
+            <li><span></span><span>Large peeled, deveined shrimp (16/20 count, ≈ 40 prawns)</span><span class="qty">2 lb</span></li>
+          </ul>
+        </div>
+
+        <div class="shop-group">
+          <div class="shop-group-head"><h2>Dairy <em class="italic">+</em> Eggs</h2><span class="count">5 items</span></div>
+          <ul class="checklist">
+            <li><span></span><span>Eggs (you'll use 20)</span><span class="qty">2 dozen</span></li>
+            <li><span></span><span>Shredded Monterey Jack or Oaxaca cheese</span><span class="qty">¾ lb</span></li>
+            <li><span></span><span>Queso fresco</span><span class="qty">8 oz</span></li>
+            <li><span></span><span>Sour cream or Mexican crema</span><span class="qty">16 oz</span></li>
+            <li><span></span><span>Butter</span><span class="qty">1 stick</span></li>
+          </ul>
+        </div>
+
+        <div class="shop-group">
+          <div class="shop-group-head"><h2>Pantry</h2><span class="count">14 items</span></div>
+          <ul class="checklist">
+            <li><span></span><span>Achiote (annatto) paste — chicken marinade</span><span class="qty">3 oz pack</span></li>
+            <li><span></span><span>Chipotles in adobo — prawns marinade</span><span class="qty">small can</span></li>
+            <li><span></span><span>Black beans (canned, 15 oz)</span><span class="qty">2 cans</span></li>
+            <li><span></span><span>Long-grain white rice</span><span class="qty">2 lb</span></li>
+            <li><span></span><span>Olive oil</span><span class="qty">—</span></li>
+            <li><span></span><span>Kosher salt, black pepper</span><span class="qty">—</span></li>
+            <li><span></span><span>Smoked paprika, cumin, dried oregano</span><span class="qty">—</span></li>
+            <li><span></span><span>White vinegar (pickled onions)</span><span class="qty">small bottle</span></li>
+            <li><span></span><span>Tortilla chips, large bags</span><span class="qty">2</span></li>
+            <li><span></span><span>Salsa jars (1 mild + 1 hot, OR roja + verde)</span><span class="qty">2</span></li>
+            <li><span></span><span>Salsa verde for the toppings bar</span><span class="qty">1 jar</span></li>
+            <li><span></span><span>Hot sauce — variety</span><span class="qty">2-3 bottles</span></li>
+            <li><span></span><span>Cotija cheese (esquites)</span><span class="qty">small block</span></li>
+            <li><span></span><span>Mayo (esquites)</span><span class="qty">small jar</span></li>
+          </ul>
+        </div>
+
+        <div class="shop-group">
+          <div class="shop-group-head"><h2>Tortillas</h2><span class="count">2 items</span></div>
+          <ul class="checklist">
+            <li><span></span><span>Corn tortillas, small (chicken + prawns + mushroom)</span><span class="qty">60</span></li>
+            <li><span></span><span>Flour tortillas, small/medium (egg tacos)</span><span class="qty">2 dozen</span></li>
+          </ul>
+        </div>
       </div>
 
-      <!-- ============== DAIRY / EGGS ============== -->
-      <div class="shop-group">
-        <div class="shop-group-head">
-          <h2>Dairy <em class="italic">+</em> Eggs</h2>
-          <span class="count">5 items</span>
+      <!-- ============== RAVI ============== -->
+      <div id="ravi" class="buyer-section b-ravi">
+        <div class="buyer-head">
+          <h2><em>Ravi</em>'s list</h2>
+          <span class="you-buy">Drinks + Bar · 7 items</span>
         </div>
-        <ul class="checklist">
-          <li><span></span><span>Eggs (you'll use 20)</span><span class="qty">2 dozen</span></li>
-          <li><span></span><span>Shredded Monterey Jack or Oaxaca cheese</span><span class="qty">¾ lb</span></li>
-          <li><span></span><span>Queso fresco</span><span class="qty">8 oz</span></li>
-          <li><span></span><span>Sour cream or Mexican crema</span><span class="qty">16 oz</span></li>
-          <li><span></span><span>Butter</span><span class="qty">1 stick</span></li>
-        </ul>
+
+        <div class="shop-group">
+          <div class="shop-group-head"><h2>Drinks <em class="italic">+</em> Bar</h2><span class="count">7 items</span></div>
+          <ul class="checklist">
+            <li><span></span><span>Blanco tequila (≈ 3 cups for 2 margarita pitchers + palomas)</span><span class="qty">1 L bottle</span></li>
+            <li><span></span><span>Triple sec / orange liqueur (1½ cups for 2 pitchers)</span><span class="qty">1 bottle (375 ml+)</span></li>
+            <li><span></span><span>Simple syrup OR agave (1 cup syrup or 6 tbsp agave for 2 pitchers)</span><span class="qty">small bottle</span></li>
+            <li><span></span><span>Grapefruit soda (Squirt or Jarritos) for palomas</span><span class="qty">4-pack</span></li>
+            <li><span></span><span>Mexican lager (Modelo, Pacifico, etc.)</span><span class="qty">1 case</span></li>
+            <li><span></span><span>Coarse salt for margarita rims</span><span class="qty">small</span></li>
+            <li><span></span><span>Extra ice</span><span class="qty">2 bags</span></li>
+          </ul>
+        </div>
       </div>
 
-      <!-- ============== TORTILLAS ============== -->
-      <div class="shop-group">
-        <div class="shop-group-head">
-          <h2>Tortillas</h2>
-          <span class="count">2 items</span>
+      <!-- ============== MADHAN ============== -->
+      <div id="madhan" class="buyer-section b-madhan">
+        <div class="buyer-head">
+          <h2><em>Madhan</em>'s list</h2>
+          <span class="you-buy">All Produce · 18 items</span>
         </div>
-        <ul class="checklist">
-          <li><span></span><span>Corn tortillas, small (chicken + prawns + mushroom)</span><span class="qty">60</span></li>
-          <li><span></span><span>Flour tortillas, small/medium (egg tacos)</span><span class="qty">2 dozen</span></li>
-        </ul>
+
+        <div class="shop-group">
+          <div class="shop-group-head"><h2>Produce</h2><span class="count">18 items</span></div>
+          <ul class="checklist">
+            <li><span></span><span>Limes (juice + wedges — used everywhere, esp. 16 for margaritas)</span><span class="qty">25 large</span></li>
+            <li><span></span><span>Yellow onions (≈ 3 medium)</span><span class="qty">2 lb</span></li>
+            <li><span></span><span>Red onions (pickling + pico)</span><span class="qty">1 lb</span></li>
+            <li><span></span><span>Poblano peppers (charred)</span><span class="qty">4 large</span></li>
+            <li><span></span><span>Jalapeño</span><span class="qty">1</span></li>
+            <li><span></span><span>Roma tomatoes (≈ 8, for pico)</span><span class="qty">2 lb</span></li>
+            <li><span></span><span>Cilantro (large bunches)</span><span class="qty">2</span></li>
+            <li><span></span><span>Iceberg or romaine</span><span class="qty">1 head</span></li>
+            <li><span></span><span>Red cabbage (slaw for prawns)</span><span class="qty">1 small</span></li>
+            <li><span></span><span>Cremini mushrooms</span><span class="qty">2 lb</span></li>
+            <li><span></span><span>Yukon gold potatoes (egg tacos)</span><span class="qty">1¼ lb</span></li>
+            <li><span></span><span>Garlic (≈ 18 cloves used)</span><span class="qty">2 heads</span></li>
+            <li><span></span><span>Ripe avocados (guacamole — get 8 if guests love it)</span><span class="qty">6</span></li>
+            <li><span></span><span>Watermelon (agua fresca)</span><span class="qty">1 small (~5-6 lb)</span></li>
+            <li><span></span><span>Strawberries</span><span class="qty">1 lb</span></li>
+            <li><span></span><span>Blueberries</span><span class="qty">1 pint</span></li>
+            <li><span></span><span>Corn (or 1 lb frozen)</span><span class="qty">2 ears</span></li>
+            <li><span></span><span>Pink grapefruit (only if making fresh palomas instead of soda)</span><span class="qty">1</span></li>
+          </ul>
+        </div>
       </div>
 
-      <!-- ============== PANTRY ============== -->
-      <div class="shop-group">
-        <div class="shop-group-head">
-          <h2>Pantry</h2>
-          <span class="count">14 items</span>
+      <!-- ============== SURAJ ============== -->
+      <div id="suraj" class="buyer-section b-suraj">
+        <div class="buyer-head">
+          <h2><em>Suraj</em>'s list</h2>
+          <span class="you-buy">Bakery · 1 item · easiest job</span>
         </div>
-        <ul class="checklist">
-          <li><span></span><span>Achiote (annatto) paste — chicken marinade</span><span class="qty">3 oz pack</span></li>
-          <li><span></span><span>Chipotles in adobo — prawns marinade</span><span class="qty">small can</span></li>
-          <li><span></span><span>Black beans (canned, 15 oz)</span><span class="qty">2 cans</span></li>
-          <li><span></span><span>Long-grain white rice</span><span class="qty">2 lb</span></li>
-          <li><span></span><span>Olive oil</span><span class="qty">—</span></li>
-          <li><span></span><span>Kosher salt, black pepper</span><span class="qty">—</span></li>
-          <li><span></span><span>Smoked paprika, cumin, dried oregano</span><span class="qty">—</span></li>
-          <li><span></span><span>White vinegar (pickled onions)</span><span class="qty">small bottle</span></li>
-          <li><span></span><span>Tortilla chips, large bags</span><span class="qty">2</span></li>
-          <li><span></span><span>Salsa jars (1 mild + 1 hot, OR roja + verde)</span><span class="qty">2</span></li>
-          <li><span></span><span>Salsa verde for the toppings bar</span><span class="qty">1 jar</span></li>
-          <li><span></span><span>Hot sauce — variety</span><span class="qty">2-3 bottles</span></li>
-          <li><span></span><span>Cotija cheese (esquites)</span><span class="qty">small block</span></li>
-          <li><span></span><span>Mayo (esquites)</span><span class="qty">small jar</span></li>
-        </ul>
-      </div>
 
-      <!-- ============== DRINKS / BAR ============== -->
-      <div class="shop-group">
-        <div class="shop-group-head">
-          <h2>Drinks <em class="italic">+</em> Bar</h2>
-          <span class="count">7 items</span>
+        <div class="shop-group">
+          <div class="shop-group-head"><h2>Bakery</h2><span class="count">1 item</span></div>
+          <ul class="checklist">
+            <li><span></span><span>Tres leches cake — call the bakery <strong>before</strong> you go (Saturday afternoon to confirm pickup)</span><span class="qty">serves 15</span></li>
+          </ul>
+          <p style="color: var(--ink-soft); font-size: var(--fs-sm); font-style: italic; margin-top: var(--s4); font-family: var(--display); font-variation-settings: 'opsz' 144, 'SOFT' 80;">
+            Single-mission: pick up the cake morning-of. Pair with a coffee.
+          </p>
         </div>
-        <ul class="checklist">
-          <li><span></span><span>Blanco tequila (≈ 3 cups for 2 margarita pitchers + palomas)</span><span class="qty">1 L bottle</span></li>
-          <li><span></span><span>Triple sec / orange liqueur (1½ cups for 2 pitchers)</span><span class="qty">1 bottle (375 ml+)</span></li>
-          <li><span></span><span>Simple syrup OR agave (1 cup syrup or 6 tbsp agave for 2 pitchers)</span><span class="qty">small bottle</span></li>
-          <li><span></span><span>Grapefruit soda (Squirt or Jarritos) for palomas</span><span class="qty">4-pack</span></li>
-          <li><span></span><span>Mexican lager (Modelo, Pacifico, etc.)</span><span class="qty">1 case</span></li>
-          <li><span></span><span>Coarse salt for margarita rims</span><span class="qty">small</span></li>
-          <li><span></span><span>Extra ice</span><span class="qty">2 bags</span></li>
-        </ul>
-      </div>
-
-      <!-- ============== BAKERY ============== -->
-      <div class="shop-group">
-        <div class="shop-group-head">
-          <h2>Bakery</h2>
-          <span class="count">1 item</span>
-        </div>
-        <ul class="checklist">
-          <li><span></span><span>Tres leches cake — call the bakery in advance</span><span class="qty">serves 15</span></li>
-        </ul>
       </div>
 
       <div class="divider">❦ &nbsp; ❦ &nbsp; ❦</div>
 
       <p style="text-align: center; color: var(--ink-soft); font-size: var(--fs-sm); padding-bottom: var(--s7);">
-        Use <kbd style="font-family: var(--sans); padding: 2px 6px; background: var(--paper-warm); border: 1px solid var(--line); border-radius: 4px; font-size: 0.8em;">⌘ P</kbd> to print this list — formatted for one or two clean pages.
+        Use <kbd style="font-family: var(--sans); padding: 2px 6px; background: var(--paper-warm); border: 1px solid var(--line); border-radius: 4px; font-size: 0.8em;">⌘ P</kbd> to print — each person can print just their section by selecting it before printing.
       </p>
 
     </section>
