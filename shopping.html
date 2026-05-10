@@ -118,6 +118,29 @@
       font-family: var(--sans);
     }
 
+    /* Already-bought items: shown for visibility, no checkbox, not tappable */
+    .checklist li.bought {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+    .checklist li.bought > span:nth-child(2),
+    .checklist li.bought > span.qty {
+      text-decoration: line-through;
+      text-decoration-thickness: 1.5px;
+    }
+    .checklist li.bought::before {
+      background: transparent;
+      border-color: transparent;
+      color: var(--terracotta-deep);
+      content: "\2713";
+      text-align: center;
+      line-height: 18px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--sans);
+    }
+
     /* Progress chip in each buyer's header */
     .shop-progress {
       font-family: var(--display);
@@ -242,19 +265,19 @@
         <div class="shop-group">
           <div class="shop-group-head"><h2>Meat <em class="italic">+</em> Seafood</h2><span class="count">2 items</span></div>
           <ul class="checklist">
-            <li><span></span><span>Boneless skinless chicken thighs (≈ 12, for 20 generous tacos)</span><span class="qty">3 lb</span></li>
-            <li><span></span><span>Large peeled, deveined shrimp (16/20 count, ≈ 40 prawns)</span><span class="qty">2 lb</span></li>
+            <li class="bought"><span></span><span>Boneless skinless chicken thighs (≈ 12, for 20 generous tacos)</span><span class="qty">3 lb</span></li>
+            <li class="bought"><span></span><span>Large peeled, deveined shrimp (16/20 count, ≈ 40 prawns)</span><span class="qty">2 lb</span></li>
           </ul>
         </div>
 
         <div class="shop-group">
           <div class="shop-group-head"><h2>Dairy <em class="italic">+</em> Eggs</h2><span class="count">5 items</span></div>
           <ul class="checklist">
-            <li><span></span><span>Eggs (you'll use 20)</span><span class="qty">2 dozen</span></li>
+            <li class="bought"><span></span><span>Eggs (you'll use 20)</span><span class="qty">2 dozen</span></li>
             <li><span></span><span>Shredded Monterey Jack or Oaxaca cheese</span><span class="qty">¾ lb</span></li>
             <li><span></span><span>Queso fresco</span><span class="qty">8 oz</span></li>
             <li><span></span><span>Sour cream or Mexican crema</span><span class="qty">16 oz</span></li>
-            <li><span></span><span>Butter</span><span class="qty">1 stick</span></li>
+            <li class="bought"><span></span><span>Butter</span><span class="qty">1 stick</span></li>
           </ul>
         </div>
 
@@ -263,25 +286,25 @@
           <ul class="checklist">
             <li><span></span><span>Achiote (annatto) paste — chicken marinade</span><span class="qty">3 oz pack</span></li>
             <li><span></span><span>Chipotles in adobo — prawns marinade</span><span class="qty">small can</span></li>
-            <li><span></span><span>Black beans (canned, 15 oz)</span><span class="qty">3 cans</span></li>
-            <li><span></span><span>Long-grain white rice</span><span class="qty">2 lb</span></li>
-            <li><span></span><span>Olive oil</span><span class="qty">—</span></li>
-            <li><span></span><span>Kosher salt, black pepper</span><span class="qty">—</span></li>
-            <li><span></span><span>Smoked paprika, cumin, dried oregano</span><span class="qty">—</span></li>
-            <li><span></span><span>White vinegar (pickled onions)</span><span class="qty">small bottle</span></li>
-            <li><span></span><span>Tortilla chips, large bags</span><span class="qty">2</span></li>
+            <li class="bought"><span></span><span>Black beans (canned, 15 oz)</span><span class="qty">3 cans</span></li>
+            <li class="bought"><span></span><span>Long-grain white rice</span><span class="qty">2 lb</span></li>
+            <li class="bought"><span></span><span>Olive oil</span><span class="qty">—</span></li>
+            <li class="bought"><span></span><span>Kosher salt, black pepper</span><span class="qty">—</span></li>
+            <li class="bought"><span></span><span>Smoked paprika, cumin, dried oregano</span><span class="qty">—</span></li>
+            <li class="bought"><span></span><span>White vinegar (pickled onions)</span><span class="qty">small bottle</span></li>
+            <li class="bought"><span></span><span>Tortilla chips, large bags</span><span class="qty">2</span></li>
             <li><span></span><span>Salsa jars (1 mild + 1 hot, OR roja + verde)</span><span class="qty">2</span></li>
-            <li><span></span><span>Salsa verde for the toppings bar</span><span class="qty">1 jar</span></li>
-            <li><span></span><span>Hot sauce — variety</span><span class="qty">2-3 bottles</span></li>
+            <li class="bought"><span></span><span>Salsa verde for the toppings bar</span><span class="qty">1 jar</span></li>
+            <li class="bought"><span></span><span>Hot sauce — variety</span><span class="qty">2-3 bottles</span></li>
             <li><span></span><span>Cotija cheese (esquites)</span><span class="qty">small block</span></li>
-            <li><span></span><span>Mayo (esquites)</span><span class="qty">small jar</span></li>
+            <li class="bought"><span></span><span>Mayo (esquites)</span><span class="qty">small jar</span></li>
           </ul>
         </div>
 
         <div class="shop-group">
           <div class="shop-group-head"><h2>Tortillas</h2><span class="count">2 items</span></div>
           <ul class="checklist">
-            <li><span></span><span>Corn tortillas, small (chicken + prawns + mushroom)</span><span class="qty">60</span></li>
+            <li class="bought"><span></span><span>Corn tortillas, small (chicken + prawns + mushroom)</span><span class="qty">60</span></li>
             <li><span></span><span>Flour tortillas, small/medium (egg tacos)</span><span class="qty">2 dozen</span></li>
           </ul>
         </div>
@@ -396,7 +419,7 @@
 
       function updateProgress(section) {
         var items = section.querySelectorAll('.checklist li');
-        var done = section.querySelectorAll('.checklist li.checked').length;
+        var done = section.querySelectorAll('.checklist li.checked, .checklist li.bought').length;
         var el = section.querySelector('.shop-progress');
         if (!el) return;
         if (done === items.length && items.length > 0) {
@@ -419,8 +442,9 @@
           head.appendChild(prog);
         }
 
-        // Wire each row
+        // Wire each row (skip permanently-bought items — they're not tappable)
         section.querySelectorAll('.checklist li').forEach(function (li) {
+          if (li.classList.contains('bought')) return;
           var text = itemText(li);
           if (!text) return;
           var key = keyFor(buyerId, text);
@@ -444,6 +468,7 @@
         reset.addEventListener('click', function () {
           if (!confirm('Uncheck every item in this list?')) return;
           section.querySelectorAll('.checklist li').forEach(function (li) {
+            if (li.classList.contains('bought')) return;
             var text = itemText(li);
             if (!text) return;
             safeSet(keyFor(buyerId, text), null);
